@@ -1,0 +1,12 @@
+﻿@model IList<ShoppingNavigatorSolution.Models.Product>
+
+<form method="post" action="@Url.Action("Products", "Product")">
+    @foreach (var product in Model)
+    {
+        <div>
+            <input type="checkbox" name="selectedProduct" value="@product.Id" /> @product.Name
+        </div>
+    }
+
+    <button>Add to cart</button>
+</form>
