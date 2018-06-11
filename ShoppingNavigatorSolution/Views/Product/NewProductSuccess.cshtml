@@ -4,11 +4,9 @@
     ViewBag.Title = "NewProductSuccess";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@if (Model.SuccessfulPost == true)
-{
     <div>
         <h3 style="text-align:center; color: white; background-color: lawngreen; margin-left:150px; margin-right: 150px;">Success! You Added A New Product!</h3>
     </div>
-}
 
-@Url.Action("Products", "Product")
+
+@Html.Action("AddToList", "ShoppingList")

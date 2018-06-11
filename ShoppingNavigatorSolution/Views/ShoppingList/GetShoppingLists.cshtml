@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ShoppingNavigatorSolution.Models.ShoppingList>
+@{
+    ViewBag.Title = "GetShoppingLists";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Saved Shopping Lists</h2>
+
+<div>
+    @foreach (var list in Model)
+    {
+            @*<td><input type="checkbox" name="selectedProduct" value="@product.Id" /></td>*@
+    <p>
+        <a href="@Url.Action("GetPreviousList" , "ShoppingList", new { id = list.ListId })">
+            @list.ListName
+        </a>   
+        @list.ListDate
+    </p>
+    
+                <p></p>
+                <p></p>
+    }
+</div>

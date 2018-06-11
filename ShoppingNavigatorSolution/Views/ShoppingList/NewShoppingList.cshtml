@@ -1,0 +1,18 @@
+﻿@model ShoppingNavigatorSolution.Models.ShoppingList
+@{
+    ViewBag.Title = "NewShoppingList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>NewShoppingList</h2>
+
+<form method="post" action="~/ShoppingList/NewShoppingList">
+
+    <p><strong>Name Your Shopping List</strong></p>
+    <p>
+        <input type="text" name="ListName" placeholder="Name of List" />
+        <input type="date" name="ListDate" placeholder="Shopping Date" />
+        <button>Save List</button>
+    </p>
+</form>
+

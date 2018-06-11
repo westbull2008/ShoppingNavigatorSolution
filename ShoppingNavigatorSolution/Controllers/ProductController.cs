@@ -18,71 +18,19 @@ namespace ShoppingNavigatorSolution.Controllers
         {
             this.dal = dal;
         }
-        // GET: Product
-        public ActionResult Products()
-        {            
+       
+        public ActionResult NewProductSuccess()
+        {
             return View();
         }
-        public ActionResult NewProductSuccess(bool? saveNewProduct)
-        {
-            AddProductSuccess done = new AddProductSuccess();
-            done.NewProductList = dal.GetAllProducts();
-            done.SuccessfulPost = saveNewProduct;
-            return View(done);
-
-        }
 
         [HttpPost]
-        public ActionResult Products(List<int> selectedProduct)
+        public ActionResult NewProductSuccess(Product model)
         {
-            // Loop through each selected product
-
-            // Look for it in the database
-
-            // Add the product to the shopping cart
-            return RedirectToAction("ShoppingList");
+            bool result = dal.SaveNewProduct(model);
+            return RedirectToAction("NewProductSuccess");
         }
 
-
-        public ActionResult ProductList()
-        {
-            var products = dal.GetAllProducts();
-
-            return PartialView("ProductList", products);
-        }
-
-        [HttpPost]
-        public ActionResult AddToProducts(string name, string department)
-        {
-
-            var product = dal.GetAllProducts();
-
-            ShoppingList list = GetActiveShoppingList();
-            ///list.AddToList(product, department);
-
-            return RedirectToAction("Products");
-
-        }
-        public ActionResult ProductShoppingList()
-        {
-            ShoppingList list = GetActiveShoppingList();
-
-            return View(list);
-        }
-        private ShoppingList GetActiveShoppingList()
-        {
-            ShoppingList list = null;
-
-            if (Session["Shopping_List"] == null)
-            {
-                list = new ShoppingList();
-                Session["Shopping_List"] = list;
-            }
-            else
-            {
-                list = Session["Shopping_List"] as ShoppingList;
-            }
-            return list;
-        }
     }
+
 }

@@ -7,19 +7,23 @@ namespace ShoppingNavigatorSolution.Models
 {
     public class ShoppingList
     {
-        public IList<ShoppingListItem> Items { get; } = new List<ShoppingListItem>();
+        public int ListId { get; set; }
+        public string ListName { get; set; }
+        public DateTime ListDate { get; set; }
+        public List<ShoppingListItem> Items { get; set; } = new List<ShoppingListItem>();
 
-        public void AddToList(Product p, int quantity)
+
+        public void AddToList(Product p, int quantity, int productId)
         {
-            var shoppingListItem = Items.FirstOrDefault(i => i.product.Id == p.Id);
+            var shoppingListItem = Items.FirstOrDefault(i => i.Product.Id == p.Id);
 
             if (shoppingListItem == null)
             {
-                shoppingListItem = new ShoppingListItem() { product = p, quantity = 0 };
+                shoppingListItem = new ShoppingListItem() { Product = p, Quantity = 0, ProductId = productId };
                 Items.Add(shoppingListItem);
             }
 
-            shoppingListItem.quantity += quantity;
+            shoppingListItem.Quantity += quantity;
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿@model IList<ShoppingNavigatorSolution.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Department</strong></td>
+        <td><strong>Quantity to Buy</strong></td>
+        <td></td>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Department</td>
+            <td>
+                <form method="post" action="~/ShoppingList/InsertIntoShoppingList">
+                    <p>
+                        Quantity to buy:<input type="number" name="quantity" min="1" />
+                        <input type="hidden" name="id" value="@product.Id" />
+                        <input type="hidden" name="listId" value="@ViewBag.ListId" />
+                        <button>Add To List</button>
+                    </p>
+                </form>
+            </td>
+            <td></td>
+        </tr>
+    }
+</table>

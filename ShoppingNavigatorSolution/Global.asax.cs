@@ -32,6 +32,7 @@ namespace ShoppingNavigatorSolution
             string connectionString = @"Server=.\SQLExpress;Database=ShoppingList;Trusted_Connection=True;";
 
             kernel.Bind<IProductSqlDAL>().To<ProductSqlDAL>().WithConstructorArgument("connectionString", connectionString);
+            kernel.Bind<IShoppingListDAL>().To<ShoppingListDAL>().WithConstructorArgument("connectionString", connectionString);
             return kernel;
         }
     }

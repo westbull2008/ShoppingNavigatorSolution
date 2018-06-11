@@ -65,6 +65,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -154,22 +155,21 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingListController.cs" />
-    <Compile Include="DAL\DepartmentDAL.cs" />
-    <Compile Include="DAL\IDepartmentDAL.cs" />
     <Compile Include="DAL\IProductSqlDAL.cs" />
+    <Compile Include="DAL\IShoppingListDAL.cs" />
     <Compile Include="DAL\ProductSqlDAL.cs" />
+    <Compile Include="DAL\ShoppingListDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddProductSuccess.cs" />
-    <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoppingList.cs" />
     <Compile Include="Models\ShoppingListItem.cs" />
+    <Compile Include="Models\ShoppingListUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,17 +204,20 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Department\Department.cshtml" />
-    <Content Include="Views\Product\Products.cshtml" />
-    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\ShoppingList\AddToList.cshtml" />
     <Content Include="Views\ShoppingList\ShoppingList.cshtml" />
-    <Content Include="Views\Shared\ProductList.cshtml" />
+    <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Product\NewProductSuccess.cshtml" />
+    <Content Include="Views\ShoppingList\ProductShoppingList.cshtml" />
+    <Content Include="Views\ShoppingList\NewShoppingList.cshtml" />
+    <Content Include="Views\ShoppingList\GetShoppingLists.cshtml" />
+    <Content Include="Views\ShoppingList\GetPreviousList.cshtml" />
+    <Content Include="Views\ShoppingList\ViewList.cshtml" />
+    <Content Include="Views\ShoppingList\SaveList.cshtml" />
+    <Content Include="Views\ShoppingList\ListByDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

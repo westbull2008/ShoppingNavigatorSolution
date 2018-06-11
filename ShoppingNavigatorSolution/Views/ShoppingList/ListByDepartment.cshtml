@@ -1,0 +1,39 @@
+﻿@model ShoppingNavigatorSolution.Models.ShoppingList
+
+@{
+    ViewBag.Title = "ListByDepartment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List By Department</h2>
+
+<table>
+    <tr>
+        <td><strong>Department</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><strong>Name</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><strong>Qty.</strong></td>
+    </tr>
+
+    @* Loop Through the Items in the Cart and Display Them Here *@
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.Product.Department</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@item.Product.Name</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@item.Quantity</td>
+        </tr>
+    }
+</table>
+

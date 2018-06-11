@@ -1,0 +1,52 @@
+WEEKEND TASKS
+
+RESUME - 2 hours
+Read up on classes 1 hour
+Design Walmart project 5 hours
+Time with Karen
+Review school notes - 2 hours
+Write glossary - 1 hour
+
+IF TIME IS REMAINING
+Stories for Adam
+
+WALMART PROJECT
+
+Aim: to find quickest way around store.
+Requirements: 
+Sections of Store:
+- Dairy
+- Frozen
+- Pet Food
+- Bakery
+- Fruit & Veg
+- Pets
+- Cleaning Products
+- Candy & Confectionery
+- Pharmacy
+- Grooming Products
+- Jewellery
+- Cards
+- Menswear
+- Womenswear
+- Children's clothes
+- Electronics
+- Office
+- Kitchen Equipment
+- Auto
+- Garden
+- Sports
+- Toys
+- Home Items
+- Special
+- Grocery
+- Meat
+
+
+Aisles in section
+Items in aisle
+Map of store
+
+Shopping List which items can be added to
+
+Return list of how to get around store

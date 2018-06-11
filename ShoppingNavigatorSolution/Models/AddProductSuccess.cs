@@ -8,7 +8,6 @@ namespace ShoppingNavigatorSolution.Models
     public class AddProductSuccess
     {
         public IList<Product> NewProductList { get; set; }
-
-        public bool? SuccessfulPost { get; set; }
+        public bool? AddedProduct { get; set; }
     }
 }

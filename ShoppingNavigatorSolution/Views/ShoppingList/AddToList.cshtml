@@ -1,0 +1,82 @@
+﻿@model IList<ShoppingNavigatorSolution.Models.Product>
+
+
+@{
+    ViewBag.Title = "AddToList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Your List</h2>
+
+<form method="post" action="~/ShoppingList/SaveList">
+
+    @Html.Action("ViewList")
+
+    <p><strong>Finished adding items? Save Your List! </strong>
+    
+    <button>Save List</button></p>
+</form>
+
+    <form method="post" action="@Url.Action("NewProductSuccess", "Product")">
+        <div>
+            <p></p>
+            <p></p>
+            <p>
+                <strong>Don't see the product you want? Add it to the list of products!</strong>
+            </p>
+            @*@Html.TextBoxFor(m => m.Name, new { placeholder = "Add a product" })*@
+            <input type="text" name="Name" placeholder="Add Product" />
+            <select name="Department">
+                <option value="" selected="selected">Department</option>
+                <option value="Alcohol">Alcohol</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Beverages">Beverages</option>
+                <option value="CleaningProducts">Cleaning Products</option>
+                <option value="Confectionery">Confectionery</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Frozen">Frozen</option>
+                <option value="Fruit & Veg">Fruit and Veg</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Grooming Products">Grooming Products</option>
+                <option value="Meat">Meat</option>
+                <option value="Misc">Misc</option>
+                <option value="PetProducts">PetProducts</option>
+                <option value="Pharmacy">Pharmacy</option>
+            </select>
+            <button>Add Product!</button>
+        </div>
+    </form>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    @*@Html.Action("ProductList", "Product")*@
+
+
+    <table>
+        <tr>
+            <td><strong>Name</strong></td>
+            <td><strong>Department</strong></td>
+            <td><strong>Quantity to Buy</strong></td>
+            <td></td>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Department</td>
+                <td>
+                    <form method="post" action="~/ShoppingList/AddToList">
+                        <p>
+                            Quantity to buy:<input type="number" name="quantity" min="1" />
+                            <input type="hidden" name="id" value="@product.Id" />
+
+                            <button>Add To List</button>
+                        </p>
+                    </form>
+                </td>
+                <td></td>
+            </tr>
+        }
+    </table>

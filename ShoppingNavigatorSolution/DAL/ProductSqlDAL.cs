@@ -16,41 +16,6 @@ namespace ShoppingNavigatorSolution.DAL
             this.connectionString = connectionString;
         }
 
-        /// <summary>
-        /// Updates in the database.
-        /// </summary>
-        /// <param name="card"></param>
-        public Product GetProduct(int id)
-        {
-            Product product = new Product();
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    SqlCommand cmd = new SqlCommand(@"select * from product where product = @product;", conn);
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        product.Id = Convert.ToInt32(reader["id"]);
-                        product.Name = Convert.ToString(reader["product"]);
-                        product.Department = Convert.ToString(reader["department"]);
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-
-            return product;
-        }
-
         public List<Product> GetAllProducts()
         {
             List<Product> products = new List<Product>();
@@ -61,7 +26,7 @@ namespace ShoppingNavigatorSolution.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM products;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM products ORDER BY department, product asc;", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -82,17 +47,15 @@ namespace ShoppingNavigatorSolution.DAL
             return products;
         }
 
-        public bool? SaveNewProduct(Product product)
+        public bool SaveNewProduct(Product product)
         {
-            List<Product> saveNewProduct = new List<Product>();
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO products values (@name, @department);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO products (product, department) VALUES (@name, @department);", conn);
                     cmd.Parameters.AddWithValue("@name", product.Name);
                     cmd.Parameters.AddWithValue("@department", product.Department);
 
@@ -101,7 +64,6 @@ namespace ShoppingNavigatorSolution.DAL
             }
             catch (SqlException ex)
             {
-                return false;
                 throw ex;
             }
 

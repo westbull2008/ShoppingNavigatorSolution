@@ -11,7 +11,6 @@ namespace ShoppingNavigatorSolution.DAL
     public interface IProductSqlDAL
     {
         List<Product> GetAllProducts();
-        bool? SaveNewProduct(Product product);
-        Product GetProduct(int id);
+        bool SaveNewProduct(Product product);
     }
 }
