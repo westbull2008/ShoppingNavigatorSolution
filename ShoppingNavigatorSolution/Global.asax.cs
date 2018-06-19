@@ -8,6 +8,7 @@ using System.Web.Routing;
 using Ninject;
 using Ninject.Web.Common.WebHost;
 using ShoppingNavigatorSolution.DAL;
+using System.Configuration;
 
 namespace ShoppingNavigatorSolution
 {
@@ -29,7 +30,8 @@ namespace ShoppingNavigatorSolution
             var kernel = new StandardKernel();
 
             // Set up the bindings
-            string connectionString = @"Server=.\SQLExpress;Database=ShoppingList;Trusted_Connection=True;";
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+//            string connectionString = @"Server=.\SQLExpress;Database=ShoppingList;Trusted_Connection=True;";
 
             kernel.Bind<IProductSqlDAL>().To<ProductSqlDAL>().WithConstructorArgument("connectionString", connectionString);
             kernel.Bind<IShoppingListDAL>().To<ShoppingListDAL>().WithConstructorArgument("connectionString", connectionString);
